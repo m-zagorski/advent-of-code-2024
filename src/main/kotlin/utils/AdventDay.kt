@@ -11,12 +11,12 @@ interface AdventDay {
         generatePart2Answer(currentDay)
     }
 
-    fun generatePart1Answer(currentDay: String) {
+    private fun generatePart1Answer(currentDay: String) {
         part1(readLines(currentDay))
         part1(readFile(currentDay))
     }
 
-    fun generatePart2Answer(currentDay: String) {
+    private fun generatePart2Answer(currentDay: String) {
         part2(readLines(currentDay))
         part2(readFile(currentDay))
     }
