@@ -32,8 +32,9 @@ object Day3 : AdventDay {
     }
 
     private fun calculateMul(input: String): Long {
-        return """mul\(\d{1,3},\d{1,3}\)""".toRegex().findAll(input).toList()
+        return """mul\(\d{1,3},\d{1,3}\)""".toRegex().findAll(input)
             .sumOf {
+//                val (l, r) = it.destructured
                 val (l, r) = numbersRegex.findAll(it.value).toList().map { it.value.toLong() }
                 l * r
             }
