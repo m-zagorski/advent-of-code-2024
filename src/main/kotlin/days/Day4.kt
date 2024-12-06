@@ -1,7 +1,7 @@
 package org.example.days
 
 import org.example.utils.AdventDay
-import org.example.utils.Direction
+import org.example.utils.WorldDirection
 import org.example.utils.getSafe
 import org.example.utils.toCharMatrix
 
@@ -17,7 +17,7 @@ object Day4 : AdventDay {
         matrix.forEachIndexed { y, line ->
             line.forEachIndexed { x, c ->
                 if (c == 'X') {
-                    Direction.WITH_DIAGONAL.forEach { direction ->
+                    WorldDirection.WITH_DIAGONAL.forEach { direction ->
                         val letters = CharArray(4) { '.' }
                         for (i in 0..3) {
                             val l = matrix.getSafe(direction.toNewCoordinate(x, y, i)) ?: break
@@ -40,12 +40,12 @@ object Day4 : AdventDay {
         matrix.forEachIndexed { y, line ->
             line.forEachIndexed { x, c ->
                 if (c == 'A') {
-                    val ne = matrix.getSafe(Direction.NorthEast.toNewCoordinate(x, y))
-                    val nw = matrix.getSafe(Direction.NorthWest.toNewCoordinate(x, y))
+                    val ne = matrix.getSafe(WorldDirection.NorthEast.toNewCoordinate(x, y))
+                    val nw = matrix.getSafe(WorldDirection.NorthWest.toNewCoordinate(x, y))
 
                     if (ne != null && nw != null) {
-                        val se = matrix.getSafe(Direction.SouthEast.toNewCoordinate(x, y))
-                        val sw = matrix.getSafe(Direction.SouthWest.toNewCoordinate(x, y))
+                        val se = matrix.getSafe(WorldDirection.SouthEast.toNewCoordinate(x, y))
+                        val sw = matrix.getSafe(WorldDirection.SouthWest.toNewCoordinate(x, y))
 
                         if (xmas.contains("$ne$sw") && xmas.contains("$nw$se")) {
                             count++
