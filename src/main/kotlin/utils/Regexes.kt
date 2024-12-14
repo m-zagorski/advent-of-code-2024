@@ -12,6 +12,11 @@ val singleDigits  = "[0-9]".toRegex()
 val numbersRegex = "\\d+".toRegex()
 
 /**
+ * Regex to find all numbers positive and negative
+ */
+val numbersWithSignRegex = """-?\d+""".toRegex()
+
+/**
  * Regex to find single digits and their string representation
  * This also handles the case of overlapping because of ?=
  * But then the result is not a match but a group of matches instead so we have to do:
