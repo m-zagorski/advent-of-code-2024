@@ -8,5 +8,6 @@ data class Position(val x: Int, val y: Int) {
             y + oy
         )
     }
-
 }
+
+data class Cell(val pos: Position, val points: List<Position>)
